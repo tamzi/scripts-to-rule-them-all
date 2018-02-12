@@ -7,7 +7,7 @@ set -e
 
 cd "$(dirname "$0")/.."
 
-echo "Tests started at..."
+echo "Tests started at…"
 date "+%H:%M:%S"
 
 # GC customizations
@@ -18,7 +18,8 @@ export RUBY_HEAP_SLOTS_INCREMENT=400000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 
 # setup environment
-export RAILS_ROOT=$(cd "$(dirname $0)"/.. && pwd)
+RAILS_ROOT="$(cd "$(dirname "$0")"/.. && pwd)"
+export RAILS_ROOT
 export RAILS_ENV="test"
 export RACK_ROOT="$RAILS_ROOT"
 export RACK_ENV="$RAILS_ENV"
@@ -31,7 +32,7 @@ export RBENV_VERSION="2.1.6"
 export PATH="$RACK_ROOT/bin:$PATH"
 
 # run tests
-echo "Running tests ..."
+echo "Running tests…"
 date "+%H:%M:%S"
 
 # run tests.
